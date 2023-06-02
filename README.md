@@ -4,11 +4,11 @@ This repository contains the code and instructions for deploying a Magento 2 app
 
 ## Task Overview
 
-The task involves creating an infrastructure on AWS to host a Magento 2 application. The infrastructure will include two servers: a caching server and a server specifically for hosting the Magento application. The entry point to the infrastructure will be an AWS load balancer responsible for terminating SSL and handling routing. The task requires describing the infrastructure using Terraform as infrastructure as code. The expected outcome is a functional URL where the Magento application can be accessed and a git repository containing the infrastructure code.
+The task involves creating an infrastructure on AWS to host a Magento 2 application. The infrastructure will include two servers: a caching server and a server specifically for hosting the Magento application. The entry point to the infrastructure will be an AWS load balancer responsible for terminating SSL and handling routing. The task requires describing the infrastructure using Terraform as infrastructure as code. The expected outcome is a functional URL where the Magento application can be accessed.
 
 ## Layout
 
-The infrastructure layout consisted of the following:
+The infrastructure layout consists of the following:
 
 1. Three EC2 servers with Ubuntu 20.04 LTS:
    - Varnish server: Acting as a caching server.
@@ -52,6 +52,8 @@ terraform validate
 terraform plan -out=magento2.out
 terraform apply magento2.out
 ```
+
+`N/B: Ensure that you check the variabl files for values specific to your deployments*`
 
 ### Varnish
 
