@@ -27,7 +27,7 @@ resource "aws_instance" "varnish" {
   ]
   provisioner "file" {
     source      = "./bootstrap/varnish"
-    destination = "/tmp/vanish"
+    destination = "/tmp/varnish"
     connection {
       type                = "ssh"
       user                = var.login.username

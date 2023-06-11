@@ -75,11 +75,11 @@ variable "ec2" {
 
   default = {
     magento = {
-      instance_type = "t3.large"
+      instance_type = "t3.micro"
       volume_size   = 20
     },
     varnish = {
-      instance_type = "t3.large"
+      instance_type = "t3.micro"
       volume_size   = 20
     },
     jumpserver = {
