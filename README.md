@@ -63,7 +63,24 @@ terraform apply magento2.out
 sudo ./varnish/installations/installation.sh
 ```
 
-**N/B: Configure `host` in `/etc/varnish/default.vcl` to point to correct magento backend server IP or DNS name`**
+- edit the varnish.service file
+
+```bash
+sudo systemctl edit --full varnish
+```
+
+edit the required ExecStart as required. eg:
+
+```bash
+ExecStart=/usr/sbin/varnishd \
+   -a :80 \
+   -a localhost:8443,PROXY \
+   -p feature=+http2 \
+   -f /etc/varnish/default.vcl \
+   -s malloc,2g
+```
+
+**N/B: Configure `host` in `/etc/varnish/default.vcl` to point to correct magento backend server IP or DNS name.**
 
 ### Magento
 
