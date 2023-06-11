@@ -75,7 +75,7 @@ variable "ec2" {
 
   default = {
     magento = {
-      instance_type = "t3.micro"
+      instance_type = "t3.medium"
       volume_size   = 20
     },
     varnish = {

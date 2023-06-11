@@ -1,15 +1,16 @@
 #!/bin/bash
+ apt update
+ apt install -y mysql-server
+ systemctl enable mysql.service
+ systemctl restart mysql.service
+ service mysql status
 
-sudo apt update
-sudo apt install -y mysql-server
-sudo systemctl enable mysql.service
-sudo systemctl restart mysql.service
 read -s -p "Enter MySQL password: " MYSQL_PASSWORD
 read -s -p "Enter MySQL MAGENTO password: " MYSQL_MAGENTO_PASSWORD
 
 echo
 # Check if the database already exists
-DB_EXISTS=$(sudo mysql -u root -p"$MYSQL_PASSWORD" -e "SHOW DATABASES LIKE 'magento'" | grep magento)
+DB_EXISTS=$( mysql -u root -p"$MYSQL_PASSWORD" -e "SHOW DATABASES LIKE 'magento'" | grep magento)
 
 if [[ -n "$DB_EXISTS" ]]; then
   echo "Database 'magento' already exists."
@@ -21,12 +22,12 @@ GRANT ALL PRIVILEGES ON magento.* TO 'magento2'@'localhost';
 FLUSH PRIVILEGES;"
 
   # Execute the SQL commands using mysql
-echo "$SQL_COMMANDS" | sudo mysql -u root -p"$MYSQL_PASSWORD"
+echo "$SQL_COMMANDS" |  mysql -u root -p"$MYSQL_PASSWORD"
 
   # Check the exit code
   if [ $? -eq 0 ]; then
     echo "SQL commands executed successfully."
-    DB_EXISTS=$(sudo mysql -u root -p"$MYSQL_PASSWORD" -e "SHOW DATABASES LIKE 'magento'" | grep magento)
+    DB_EXISTS=$( mysql -u root -p"$MYSQL_PASSWORD" -e "SHOW DATABASES LIKE 'magento'" | grep magento)
     echo $DB_EXISTS
   else
     echo "Error executing SQL commands."

@@ -8,5 +8,5 @@ apt update
 apt install -y elasticsearch=7.10.0
 systemctl enable elasticsearch.service
 systemctl start elasticsearch.service
-systemctl status elasticsearch.service
 curl 127.0.0.1:9200
+service elasticsearch status

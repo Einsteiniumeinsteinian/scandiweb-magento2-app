@@ -1,7 +1,6 @@
 #! /bin/bash
 apt update
 apt install software-properties-common
-add-apt-repository ppa:ondrej/php
 apt update
 
 apt-get install -y php7.4 php7.4-fpm php7.4-curl php7.4-xml php7.4-xmlwriter \

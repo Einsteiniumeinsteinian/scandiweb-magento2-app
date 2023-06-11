@@ -32,9 +32,11 @@ cd /var/www/html/magento2/bin
 echo -e "\n"
 echo "setting permissions"
 cd /var/www/html/magento2
-sudo chown -R www-data:www-data .
-sudo chmod -R 755 .
-sudo chmod -R 777 var pub generated
+find var vendor pub/static pub/media app/etc -type f -exec chmod g+w {} \;
+find var vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} \;
+chown -R :www-data.
+chmod u+x bin/magento
+
 
 
 # Add cron jobs to crontab
