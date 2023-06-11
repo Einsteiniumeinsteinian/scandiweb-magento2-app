@@ -63,6 +63,8 @@ terraform apply magento2.out
 sudo ./varnish/installations/installation.sh
 ```
 
+**N/B: Configure `host` in `/etc/varnish/default.vcl` to point to correct magento backend server IP or DNS name`**
+
 ### Magento
 
 Please refer to the [bootstrap directory](/bootstrap) for the Magento server installation. Please visit: [Magento MarketPlace](<https://account.magento.com/applications/customer/login/?client_id=10906dd964b2dcc6befafab4f567ce6b&redirect_uri=https%3A%2F%2Fmarketplace.magento.com%2Fsso%2Faccount%2FoauthCallback%2F&response_type=code&scope=adobe_profile&state=c50ec9b4208e770cc5c3e37fe369ff11>) to setup your private and public key. follow [How to Setup Access Keys for authentication](https://devdocs.magento.com/guides/v2.3/install-gde/prereq/connect-auth.html) as a guide.
