@@ -50,7 +50,7 @@ variable "domain_setup" {
   })
   default = {
     private_key = "./secrets/cert/private.key"
-    cert_body   = "./secrets/cert/testDomain.crt"
+    cert_body   = "./secrets/cert/testdomanainxyz.crt"
     domainName  = "testdomanainxyz.site"
     record      = "www.testdomanainxyz.site"
 
